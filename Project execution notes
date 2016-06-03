@@ -36,17 +36,19 @@ Function: pixart_camera class, unproject function: calculates CAmera frame to wo
 4. ./configure --prefix=$HOME
 5. make
 6. make install
-7/ sudo modprobe vcan
+7. sudo modprobe vcan
 8. sudo ip link add dev vcan0 type vcan
 9. sudo ip link set up vcan0
 10. sudo slcand -o -s8 -t hw -S 3000000 /dev/ttyUSB0
 11. sudo ip link add dev vcan123 type vcan
+
+--------------to run: launch pixart in one tab. Open new tab and enter 'cd can-utils-master'. execute below and send test points
 12. sudo ifconfig vcan0 up
 
 13.  candump vcan0
 14. cansend vcan0 123#1122334455667788
 
-15. SImulation samples:
+-------------------------- SImulation samples:
 
 [ INFO] [1464949737.122455568]: Received frame: 123 # 11 22 33 44 55 66 77 88
 [ INFO] [1464949737.122492203]: Decoded as: Camera 17 from box 04, Point2(4386, 13124) and Point3(21862, 30600)
