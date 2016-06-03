@@ -25,4 +25,108 @@ Function: pixart_camera class, unproject function: calculates CAmera frame to wo
 
 
 
+-----------------------To INstall can-utils
+
+1. Download can-utils
+2. cd can-utils-master
+2a sudo apt-get install autoconf
+ 2b sudo apt-get install libtools
+
+3. ./autogen.sh
+4. ./configure --prefix=$HOME
+5. make
+6. make install
+7/ sudo modprobe vcan
+8. sudo ip link add dev vcan0 type vcan
+9. sudo ip link set up vcan0
+10. sudo slcand -o -s8 -t hw -S 3000000 /dev/ttyUSB0
+11. sudo ip link add dev vcan123 type vcan
+12. sudo ifconfig vcan0 up
+
+13.  candump vcan0
+14. cansend vcan0 123#1122334455667788
+
+15. SImulation samples:
+
+[ INFO] [1464949737.122455568]: Received frame: 123 # 11 22 33 44 55 66 77 88
+[ INFO] [1464949737.122492203]: Decoded as: Camera 17 from box 04, Point2(4386, 13124) and Point3(21862, 30600)
+
+
+[ INFO] [1464957233.397337968]: Received frame: 123 # 00 00 00 00 00 00 00 00
+[ INFO] [1464957233.397387762]: Decoded as: Camera 17 from box 04, Point2(   0,    0) and Point3(   0,    0)
+
+
+[ INFO] [1464957304.886589866]: Received frame: 100 # 10 10 10 10 10 10 10 10
+[ INFO] [1464957304.886621196]: Decoded as: Camera 00 from box 00, Point0(4112, 4112) and Point1(4112, 4112)
+
+[ INFO] [1464957473.822894509]: Received frame: 101 # 10 10 10 10 10 10 10 10
+[ INFO] [1464957473.823044097]: Decoded as: Camera 00 from box 00, Point2(4112, 4112) and Point3(4112, 4112)
+
+[ INFO] [1464957558.589648083]: Received frame: 102 # 10 10 10 10 10 10 10 10
+[ INFO] [1464957558.589680227]: Decoded as: Camera 01 from box 00, Point0(4112, 4112) and Point1(4112, 4112)
+
+[ INFO] [1464957727.147653080]: Received frame: 103 # 10 10 10 10 10 10 10 10
+[ INFO] [1464957727.147705268]: Decoded as: Camera 01 from box 00, Point2(4112, 4112) and Point3(4112, 4112)
+
+[ INFO] [1464957778.944111221]: Received frame: 104 # 10 10 10 10 10 10 10 10
+[ INFO] [1464957778.944141185]: Decoded as: Camera 02 from box 00, Point0(4112, 4112) and Point1(4112, 4112)
+
+[ INFO] [1464957810.592884240]: Received frame: 105 # 10 10 10 10 10 10 10 10
+[ INFO] [1464957810.592920501]: Decoded as: Camera 02 from box 00, Point2(4112, 4112) and Point3(4112, 4112)
+
+[ INFO] [1464957866.972467925]: Received frame: 106 # 10 10 10 10 10 10 10 10
+[ INFO] [1464957866.972499647]: Decoded as: Camera 03 from box 00, Point0(4112, 4112) and Point1(4112, 4112)
+
+[ INFO] [1464957884.936831731]: Received frame: 107 # 10 10 10 10 10 10 10 10
+[ INFO] [1464957884.937139669]: Decoded as: Camera 03 from box 00, Point2(4112, 4112) and Point3(4112, 4112)
+
+[ INFO] [1464957909.040287853]: Received frame: 108 # 10 10 10 10 10 10 10 10
+[ INFO] [1464957909.040325722]: Decoded as: Camera 04 from box 01, Point0(4112, 4112) and Point1(4112, 4112)
+
+[ INFO] [1464957933.939300429]: Received frame: 109 # 10 10 10 10 10 10 10 10
+[ INFO] [1464957933.939440435]: Decoded as: Camera 04 from box 01, Point2(4112, 4112) and Point3(4112, 4112)
+
+[ INFO] [1464957961.701959683]: Received frame: 10a # 10 10 10 10 10 10 10 10
+[ INFO] [1464957961.702001518]: Decoded as: Camera 05 from box 01, Point0(4112, 4112) and Point1(4112, 4112)
+
+[ INFO] [1464957980.673673960]: Received frame: 10b # 10 10 10 10 10 10 10 10
+[ INFO] [1464957980.673708779]: Decoded as: Camera 05 from box 01, Point2(4112, 4112) and Point3(4112, 4112)
+
+[ INFO] [1464958002.094887134]: Received frame: 10c # 10 10 10 10 10 10 10 10
+[ INFO] [1464958002.094918496]: Decoded as: Camera 06 from box 01, Point0(4112, 4112) and Point1(4112, 4112)
+
+.
+.
+.
+.
+.
+[ INFO] [1464958112.392743903]: Received frame: 10f # 10 10 10 10 10 10 10 10
+[ INFO] [1464958112.392795501]: Decoded as: Camera 07 from box 01, Point2(4112, 4112) and Point3(4112, 4112)
+
+
+
+
+
+[ INFO] [1464957409.273796466]: Received frame: 110 # 10 10 10 10 10 10 10 10
+[ INFO] [1464957409.273840451]: Decoded as: Camera 08 from box 02, Point0(4112, 4112) and Point1(4112, 4112)
+
+.
+.
+.
+.
+[ INFO] [1464958165.275896920]: Received frame: 11f # 10 10 10 10 10 10 10 10
+[ INFO] [1464958165.275932335]: Decoded as: Camera 15 from box 03, Point2(4112, 4112) and Point3(4112, 4112)
+.
+.
+.
+[ INFO] [1464958275.364566934]: Received frame: 120 # 10 10 10 10 10 10 10 10
+[ INFO] [1464958275.364601222]: Decoded as: Camera 16 from box 04, Point0(4112, 4112) and Point1(4112, 4112)
+
+[ INFO] [1464958304.912841247]: Received frame: 121 # 10 10 10 10 10 10 10 10
+[ INFO] [1464958304.912875921]: Decoded as: Camera 16 from box 04, Point2(4112, 4112) and Point3(4112, 4112)
+
+
+
+
+
 
